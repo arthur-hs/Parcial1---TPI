@@ -30,9 +30,6 @@ $mensaje = "Participante registrado correctamente.";
 }
 
 ?>
-
-
-
     <!DOCTYPE html>
     <html lang="en">
 
@@ -101,6 +98,17 @@ $mensaje = "Participante registrado correctamente.";
 
             <tbody>
                 <td>
+                    <?php foreach ($_SESSION["participantes"] as $index => $participante)  ?>
+                        <tr>
+                            <td><?php echo ($index + 1); ?></td>
+                            <td><?php echo $participante["nombre"]; ?></td>
+                            <td><?php echo $participante["edad"]; ?></td>
+                            <td><?php echo $participante["correo"]; ?></td>
+                            <td><?php echo $participante["videojuego"]; ?></td>
+                            <td><?php echo $participante["modalidad"]; ?></td>
+                            <td><?php echo $participante["nivel"]; ?></td>
+                            <td><?php echo $participante["experiencia"]; ?></td>
+                        </tr>
                     <tr></tr>
                 </td>
             </tbody>

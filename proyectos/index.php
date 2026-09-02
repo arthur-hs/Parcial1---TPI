@@ -77,6 +77,9 @@ $mensaje = "Participante registrado correctamente.";
 
             <div>
                 <button>Registrar Participante</button>
+                <?php if (isset($mensaje)) { ?>
+                    <p><?php echo $mensaje; ?></p>
+                <?php } ?>
             </div>
         </form>
 

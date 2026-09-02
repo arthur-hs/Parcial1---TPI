@@ -1,8 +1,33 @@
-<php?
+<?php
 
-start_session();
+session_start();
+
+if (!isset($_SESSION["participantes"])) {
+$_SESSION["participantes"] = [];
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$nombre = $_POST["nombreEstudiante"];
+$edad = $_POST["edadEstudiante"];
+$correo = $_POST["correoEstudiante"];
+$videojuego = $_POST["videoEstudiante"];
+$modalidad = $_POST["modalidadEstudiante"];
+$nivel = $_POST["nivelEstudiante"];
 
 
+$participante = [
+"nombre" => $nombre,
+"edad" => $edad,
+"correo" => $correo,
+"videojuego" => $videojuego,
+"modalidad" => $modalidad,
+"nivel" => $nivel
+];
+
+$_SESSION["participantes"][] = $participante;
+$mensaje = "Participante registrado correctamente.";
+}
 
 ?>
 
@@ -35,22 +60,22 @@ start_session();
 
             <div>
                 <label for="">Ingrese su Correo</label>
-                <input type="gmail" name="nombreEstudiante">
+                <input type="gmail" name="correoEstudiante">
             </div>
 
             <div>
                 <label for="">Ingrese su VideoJuego</label>
-                <input type="text" name="nombreEstudiante">
+                <input type="text" name="videoEstudiante">
             </div>
 
             <div>
                 <label for="">Ingrese su Modalidad</label>
-                <input type="text" name="nombreEstudiante">
+                <input type="text" name="modalidadEstudiante">
             </div>
 
             <div>
                 <label for="">Ingrese su Nivel de Experiencia</label>
-                <input type="text" name="nombreEstudiante">
+                <input type="text" name="nivelEstudiante">
             </div>
 
             <div>
@@ -68,7 +93,7 @@ start_session();
                     <tr>Edad</tr>
                     <tr>Correo</tr>
                     <tr>Video Juego </tr>
-                    <tr>Mpdalidad</tr>
+                    <tr>Modalidad</tr>
                     <tr>Nivel</tr>
                     <tr>Experiencia</tr>
                 </th>
